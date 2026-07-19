@@ -14,8 +14,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-# Hugging Face Spaces exposes port 7860 by default
-ENV ASPNETCORE_URLS=http://+:7860
-EXPOSE 7860
+# Hugging Face Spaces exposes port 8080 by default
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "VenEl.FASTLoans.Web.dll"]

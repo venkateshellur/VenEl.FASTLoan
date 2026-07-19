@@ -33,6 +33,12 @@ builder.Services.AddSingleton<ILlmClientFactory>(sp =>
     {
         factory.RegisterProvider("google", new GeminiLlmClient(httpClient, apiKey));
     }
+
+    var puterKey = builder.Configuration["ApiKeys:Puter"] ?? Environment.GetEnvironmentVariable("PUTER_API_KEY");
+    if (!string.IsNullOrEmpty(puterKey))
+    {
+        factory.RegisterProvider("puter", new OpenAiCompatibleClient(httpClient, puterKey, "https://api.puter.com/puterai/openai/v1"));
+    }
     
     return factory;
 });

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VenEl.DynamicAgents.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:VenEl.DynamicAgents.Infrastructure.Clients.GeminiLlmClient">
+            <summary>
+            LLM Client implementation for Google's Gemini API.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Infrastructure.Clients.OpenAiCompatibleClient">
+            <summary>
+            LLM Client implementation for OpenAI-compatible REST APIs.
+            </summary>
+        </member>
+    </members>
+</doc>

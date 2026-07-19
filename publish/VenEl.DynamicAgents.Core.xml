@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VenEl.DynamicAgents.Core</name>
+    </assembly>
+    <members>
+        <member name="T:VenEl.DynamicAgents.Core.Agents.ConfiguredAgent">
+            <summary>
+            The default runtime representation of an agent defined via configuration.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Engine.DefaultAgentFactory">
+            <summary>
+            A default implementation of IAgentFactory that allows dynamic registration of agent types.
+            </summary>
+        </member>
+        <member name="M:VenEl.DynamicAgents.Core.Engine.DefaultAgentFactory.RegisterAgentType(System.String,System.Func{VenEl.DynamicAgents.Core.Models.AgentConfig,VenEl.DynamicAgents.Core.Interfaces.ILlmClient,VenEl.DynamicAgents.Core.Interfaces.IAgentLogger,System.Collections.Generic.IEnumerable{VenEl.DynamicAgents.Core.Interfaces.ITool},VenEl.DynamicAgents.Core.Interfaces.IAgent})">
+            <summary>
+            Registers a new agent type with a factory delegate.
+            </summary>
+            <param name="type">The string identifier for the agent type (e.g. "Standard").</param>
+            <param name="factory">The function to create the agent.</param>
+        </member>
+        <member name="M:VenEl.DynamicAgents.Core.Engine.DefaultAgentFactory.CreateAgent(VenEl.DynamicAgents.Core.Models.AgentConfig,VenEl.DynamicAgents.Core.Interfaces.ILlmClient,VenEl.DynamicAgents.Core.Interfaces.IAgentLogger,System.Collections.Generic.IEnumerable{VenEl.DynamicAgents.Core.Interfaces.ITool})">
+            <summary>
+            Creates a configured agent instance based on the configuration type.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Engine.SequentialWorkflowEngine">
+            <summary>
+            A workflow engine that executes agents in a strict sequential order, passing outputs as inputs to subsequent agents.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.IAgent">
+            <summary>
+            Represents an AI agent capable of executing instructions using a specific LLM and toolset.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.IAgentFactory">
+            <summary>
+            Factory for creating agent instances based on configuration types.
+            </summary>
+        </member>
+        <member name="M:VenEl.DynamicAgents.Core.Interfaces.IAgentFactory.CreateAgent(VenEl.DynamicAgents.Core.Models.AgentConfig,VenEl.DynamicAgents.Core.Interfaces.ILlmClient,VenEl.DynamicAgents.Core.Interfaces.IAgentLogger,System.Collections.Generic.IEnumerable{VenEl.DynamicAgents.Core.Interfaces.ITool})">
+            <summary>
+            Creates a configured agent instance.
+            </summary>
+            <param name="config">The configuration specifying the agent type.</param>
+            <param name="llmClient">The LLM client to be injected into the agent.</param>
+            <param name="logger">The logger to be injected into the agent.</param>
+            <returns>An instance implementing IAgent.</returns>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.IConfigurationProvider">
+            <summary>
+            Provides configuration data for agents and workflows from an external source (e.g. YAML files).
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.ILlmClientFactory">
+            <summary>
+            Factory for instantiating the appropriate LLM client based on agent configuration.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.IToolRegistry">
+            <summary>
+            Central registry for dynamically resolving and providing tools to agents.
+            </summary>
+        </member>
+        <member name="M:VenEl.DynamicAgents.Core.Interfaces.IToolRegistry.GetTools(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Resolves and returns a collection of tools matching the given names.
+            </summary>
+            <param name="toolNames">The names of the tools to resolve.</param>
+            <returns>A collection of instantiated ITool objects.</returns>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Interfaces.IWorkflowEngine">
+            <summary>
+            Represents the execution engine responsible for orchestrating multi-agent workflows.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Models.AgentConfig">
+            <summary>
+            Represents the configuration of an AI agent, typically deserialized from YAML.
+            </summary>
+        </member>
+        <member name="T:VenEl.DynamicAgents.Core.Models.WorkflowConfig">
+            <summary>
+            Represents a multi-agent workflow configuration containing sequential steps.
+            </summary>
+        </member>
+    </members>
+</doc>

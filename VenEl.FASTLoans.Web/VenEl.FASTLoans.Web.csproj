@@ -1,0 +1,5 @@
+  <ItemGroup>
+    <None Update="agents.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>

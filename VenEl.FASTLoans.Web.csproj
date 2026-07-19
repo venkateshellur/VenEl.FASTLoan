@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Venel.Agent.ConfigAsCode\VenEl.DynamicAgents.Core\VenEl.DynamicAgents.Core.csproj" />
+    <ProjectReference Include="..\Venel.Agent.ConfigAsCode\VenEl.DynamicAgents.Infrastructure\VenEl.DynamicAgents.Infrastructure.csproj" />
+    <ProjectReference Include="..\Venel.Agent.ConfigAsCode\VenEl.DynamicAgents.GenerativeUI\VenEl.DynamicAgents.GenerativeUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="agents.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
